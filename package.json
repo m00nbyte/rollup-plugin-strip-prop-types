@@ -1,6 +1,6 @@
 {
     "name": "@m00nbyte/rollup-plugin-strip-prop-types",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Removes propTypes, defaultProps, and prop-types imports, with TypeScript support and custom import paths",
     "author": "m00nbyte <office@moonbyte.at>",
     "keywords": [
@@ -18,7 +18,7 @@
     "scripts": {
         "start": "cross-env NODE_ENV=development rollup -c -w",
         "build": "cross-env NODE_ENV=production rollup -c",
-        "deploy": "yarn build && yarn publish --access public",
+        "deploy": "yarn build && yarn publish",
         "test": "yarn build && npx mocha test/plugin.test.js"
     },
     "files": [

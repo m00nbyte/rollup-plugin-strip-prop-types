@@ -4,7 +4,7 @@
 
 ---
 
-### Features
+## Features
 
 -   Remove `propTypes` and `defaultProps` statements from react components
 -   Remove `require` and `import` statements for the `prop-types` package
