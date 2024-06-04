@@ -1,7 +1,7 @@
 import { PluginContext } from 'rollup';
 import { createFilter, FilterPattern } from '@rollup/pluginutils';
 import { Program, Identifier } from 'estree';
-import { walk, Node } from 'estree-walker';
+import { walk, Node } from 'estree-walker-ts';
 import { parse } from 'acorn';
 import MagicString from 'magic-string';
 
@@ -177,7 +177,8 @@ const stripPropTypes = (options: {
                             magicString.remove(start, end);
                         }
                     }
-                }
+                },
+                leave() {}
             });
 
             return {

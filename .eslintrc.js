@@ -1,13 +1,13 @@
 module.exports = {
     parser: '@babel/eslint-parser',
-    extends: ['standard', 'typescript'],
+    extends: ['standard', 'standard-react', 'typescript', 'typescript/react'],
     env: {
         es6: true,
-        jest: true,
+        jest: true
     },
-    plugins: ['typescript', 'prettier'],
+    plugins: ['react', 'typescript', 'prettier'],
     parserOptions: {
-        sourceType: 'module',
+        sourceType: 'module'
     },
     rules: {
         semi: [2, 'always'],
@@ -16,6 +16,6 @@ module.exports = {
         'react/jsx-indent-props': ['error', 4],
         'react/jsx-boolean-value': 0,
         'space-before-function-paren': 0,
-        'prettier/prettier': 'error',
-    },
+        'prettier/prettier': 'error'
+    }
 };

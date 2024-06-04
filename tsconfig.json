@@ -9,6 +9,7 @@
         "jsx": "react",
         "outDir": "./dist",
         "declaration": true,
+        "declarationDir": "./dist",
         // main checks
         "noEmit": true,
         "allowJs": true,
@@ -36,5 +37,5 @@
         "plugins": []
     },
     "include": ["src"],
-    "exclude": ["node_modules", "dist", "stats"]
+    "exclude": ["node_modules", "dist", "stats", "test"]
 }

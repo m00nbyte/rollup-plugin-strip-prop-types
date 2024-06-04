@@ -2,8 +2,7 @@
     "compilerOptions": {
         "baseUrl": "./",
         "paths": {
-            "@root/*": ["./src/*"],
-            "@types": ["./src/index.d.ts"]
+            "@root/*": ["./src/*"]
         }
     }
 }

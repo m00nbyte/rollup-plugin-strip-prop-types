@@ -21,6 +21,19 @@ const pkg = createRequire(import.meta.url)('./package.json');
 // prod build
 const production = process.env.NODE_ENV === 'production';
 
+export function emitModulePackageFile() {
+    return {
+        name: 'emit-module-package-file',
+        generateBundle() {
+            this.emitFile({
+                type: 'asset',
+                fileName: 'package.json',
+                source: `{"type":"module"}`
+            });
+        }
+    };
+}
+
 export default {
     input: 'src/index.ts',
     external: (id) => {
@@ -33,7 +46,8 @@ export default {
     ].map(({ prop, format }) => ({
         file: pkg[prop],
         format,
-        sourcemap: !production && 'inline'
+        sourcemap: !production && 'inline',
+        ...(format === 'es' ? { plugins: [emitModulePackageFile()] } : {})
     })),
     plugins: [
         progress({
@@ -51,7 +65,7 @@ export default {
         ]) ||
             []),
         tsConfigPaths(),
-        typescript(),
+        typescript({ useTsconfigDeclarationDir: true }),
         external(),
         dynamicImportVars(),
         commonjs(),

@@ -1,25 +1,37 @@
 {
     "name": "@m00nbyte/rollup-plugin-strip-prop-types",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Removes propTypes, defaultProps, and prop-types imports, with TypeScript support and custom import paths",
     "author": "m00nbyte <office@moonbyte.at>",
     "keywords": [
         "rollup",
         "plugin",
+        "rollup-plugin",
         "strip",
         "prop-types",
         "proptypes",
         "typescript"
     ],
     "license": "MIT",
-    "type": "module",
-    "main": "dist/index.cjs.min.js",
-    "module": "dist/index.es.min.js",
+    "main": "dist/cjs/index.min.js",
+    "module": "dist/es/index.min.js",
+    "types": "dist/index.d.ts",
+    "exports": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/es/index.min.js",
+        "default": "./dist/cjs/index.min.js"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "engines": {
+        "node": ">=18.12.0"
+    },
     "scripts": {
         "start": "cross-env NODE_ENV=development rollup -c -w",
         "build": "cross-env NODE_ENV=production rollup -c",
         "deploy": "yarn build && yarn publish",
-        "test": "yarn build && npx mocha test/plugin.test.js"
+        "test": "yarn build && npx mocha test"
     },
     "files": [
         "dist"
@@ -34,7 +46,7 @@
     "dependencies": {
         "@rollup/pluginutils": "^5.1.0",
         "acorn": "^8.11.3",
-        "estree-walker": "^3.0.3",
+        "estree-walker-ts": "^1.0.1",
         "magic-string": "^0.30.10",
         "rollup": "^4.18.0"
     },
@@ -72,6 +84,7 @@
         "@types/node": "^20.14.0",
         "@types/react": "^18.3.3",
         "assert": "^2.1.0",
+        "async": "^3.2.5",
         "cross-env": "^7.0.3",
         "mocha": "^10.4.0",
         "prop-types": "^15.8.1",
